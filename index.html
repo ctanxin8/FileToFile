@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="使用CC-BY-NC开源协议，仅供学习，用于商业用途有安全风险。">
+    <meta name="author" content="莘羽子">
+    <meta name="keywords" content="psp快速文件文字传输">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件共享与文字聊天系统</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>文件共享与文字聊天系统</h1>
+            <p>创建或加入房间，安全地共享文件和文字聊天</p>
+        </div>
+        
+        <div class="content">
+            <div class="left-panel">
+                <div class="room-section">
+                    <h2>房间管理</h2>
+                    <div class="room-input">
+                        <input type="text" id="roomId" placeholder="输入4位数字房间号" maxlength="4">
+                        <button id="joinRoom">加入房间</button>
+                    </div>
+                    <div class="current-room" id="currentRoom"></div>
+                    <div class="room-storage" id="roomStorage">
+                        <div>房间存储: <span id="storageUsed">0 MB</span> / 1 GB</div>
+                        <div class="storage-bar">
+                            <div class="storage-fill" id="storageFill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="file-section">
+                    <h2>文件共享</h2>
+                    <div class="file-list" id="fileList">
+                        <!-- 文件列表将在这里动态生成 -->
+                    </div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <i>📁</i>
+                        <p>点击或拖拽文件到此处上传</p>
+                        <p class="file-size-limit">单个文件最大 1 GB，房间总容量 1 GB</p>
+                        <input type="file" id="fileInput" multiple style="display: none;">
+                    </div>
+                    
+                    <!-- 上传进度区域 -->
+                    <div class="upload-progress-container hidden" id="uploadProgressContainer">
+                        <h3>上传进度</h3>
+                        <div id="uploadProgressList">
+                            <!-- 上传进度项将在这里动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="chat-section">
+                    <div class="chat-header">
+                        <h2>文字聊天</h2>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- 聊天消息将在这里动态生成 -->
+                    </div>
+                    <div class="chat-input">
+                        <textarea id="messageInput" placeholder="输入消息..."></textarea>
+                        <button id="sendMessage">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="statusMessage" class="status hidden"></div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+}
+
+.header p {
+    opacity: 0.8;
+}
+
+.content {
+    display: flex;
+    min-height: 600px;
+}
+
+.left-panel {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+}
+
+.right-panel {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.room-input {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.room-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.room-input button {
+    padding: 12px 20px;
+    background-color: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.room-input button:hover {
+    background-color: #3a5ca0;
+}
+
+.file-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.file-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+}
+
+.file-icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.file-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    margin-left: 10px;
+}
+
+.upload-area {
+    border: 2px dashed #4b6cb7;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    background-color: #e9ecef;
+}
+
+.upload-area i {
+    font-size: 48px;
+    color: #4b6cb7;
+    margin-bottom: 10px;
+}
+
+.chat-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #4b6cb7;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.own {
+    background-color: #4b6cb7;
+    color: white;
+    margin-left: auto;
+}
+
+.message.other {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+}
+
+.chat-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    height: 60px;
+    font-size: 14px;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    padding: 0 20px;
+    background-color: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.status {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.status.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.hidden {
+    display: none;
+}
+
+.current-room {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #4b6cb7;
+}
+
+.room-storage {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.storage-bar {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.storage-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4b6cb7, #2575fc);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* 上传进度条样式 */
+.upload-progress-container {
+    margin-top: 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.upload-progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4b6cb7, #2575fc);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.upload-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.upload-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.upload-cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.upload-cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+.upload-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.upload-error {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.file-size-limit {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
