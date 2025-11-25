@@ -361,3 +361,74 @@ body {
     color: #666;
     text-align: center;
 }
+
+/* ==================== 响应式布局调整 ==================== */
+
+/* 当屏幕宽度小于或等于 768px 时（典型的平板和手机） */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* 减小 body 边距，让内容更贴近屏幕 */
+    }
+
+    .header h1 {
+        font-size: 1.8rem; /* 减小标题字体 */
+    }
+    
+    .content {
+        flex-direction: column; /* 关键：将左右布局改为上下布局 */
+        min-height: auto; /* 取消最小高度限制，让内容决定高度 */
+    }
+
+    .left-panel,
+    .right-panel {
+        flex: none; /* 取消 flex 占比，让面板自然高度 */
+        width: 100%; /* 宽度占满父容器 */
+        border-right: none; /* 移除左侧面板的右边框 */
+        margin-bottom: 20px; /* 在两个面板之间增加下边距 */
+    }
+    
+    /* 为了在移动设备上更好地区分两个面板，可以给它们加一个边框和背景色 */
+    .left-panel {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .right-panel {
+        padding-bottom: 30px; /* 给底部留出更多空间，防止输入框被遮挡 */
+    }
+    
+    .chat-section {
+        /* 在移动设备上，聊天区域的高度可以固定一个值，或者通过 flex 让它占满可用空间 */
+        /* 这里选择固定一个合理的高度，确保它不会太长 */
+        height: 400px; 
+    }
+    
+    .message {
+        max-width: 85%; /* 在手机上，消息气泡可以占比更大一些 */
+    }
+}
+
+/* 当屏幕宽度小于或等于 480px 时（典型的手机），可以做更精细的调整 */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .room-section,
+    .file-section {
+        padding: 15px; /* 减小内边距 */
+    }
+    
+    .upload-area {
+        padding: 20px 10px;
+    }
+    
+    .chat-section {
+        height: 350px; /* 进一步减小聊天区域高度 */
+    }
+    
+    .chat-input textarea {
+        height: 50px; /* 减小输入框高度 */
+    }
+}
